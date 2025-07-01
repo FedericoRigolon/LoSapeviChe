@@ -15,6 +15,10 @@ run/main_scene="uid://cjr3l27r8gvnr"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
+[autoload]
+
+GameLogic="*res://scripts/game_logic.gd"
+
 [rendering]
 
 renderer/rendering_method="mobile"
