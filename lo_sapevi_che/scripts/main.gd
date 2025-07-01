@@ -1,11 +1,22 @@
 extends Node
 
+var round_scene = preload("res://scenes/round.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+func _on_menu_play_pressed() -> void:
+	print("scimpanzini bananini")
+	round_factory(1)
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+func round_factory(round_number):
+	match round_number:
+		1:
+			print("creating round 1")
+		2:
+			print("creating round 2")
+		3:
+			print("creating round 3")
+		4:
+			print("creating round 4")
+		5:
+			print("creating round 5")
+		_:
+			print("error")
