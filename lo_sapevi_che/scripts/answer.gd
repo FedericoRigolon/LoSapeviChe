@@ -30,8 +30,8 @@ func _set_sound(path_to_sound: String) -> void:
 	if sound is AudioStream:
 		$AnswerSound.set_stream(sound)
 
-func _highlight() -> void:
-	push_error("_highligth() must be overridden in subclasses.") # simule abstract class
+func highlight() -> void:
+	push_error("highligth() must be overridden in subclasses.") # simule abstract class
 
 func _play_sound() -> void:
 	var sound = $AnswerSound
@@ -39,7 +39,7 @@ func _play_sound() -> void:
 		sound.play()
 
 func on_answer_chosen() -> void:
-	_highlight()
+	highlight()
 	_play_sound()
 
 func _on_gui_event(event: InputEventMouseButton) -> void:

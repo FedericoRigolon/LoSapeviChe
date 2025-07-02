@@ -8,5 +8,5 @@ func setup(text):
 	super.setup(text)
 	_set_sound("res://art/sounds/right.mp3")
 
-func _highlight() -> void:
+func highlight() -> void:
 	self.modulate = HIGHLIGHT_COLOR

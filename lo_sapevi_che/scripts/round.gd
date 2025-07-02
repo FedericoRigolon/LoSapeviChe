@@ -2,6 +2,8 @@ extends Control
 
 class_name Round
 
+signal answer_chosen
+
 static var round_count: int
 var _question: Question
 var _Answers: Array[Answer]
@@ -19,10 +21,12 @@ func setup(question: Question, Answers: Array[Answer]) -> void:
 
 func _set_question(question: Question) -> void:
 	self._question = question
+	add_child(question)
 
 func _check_answers(Answers: Array[Answer]) -> bool:
 	var one_correct = false
-	for i in range(Answers.size()):
+	var n = Answers.size()
+	for i in range(n):
 		if Answers[i] is RightAnswer:
 			if not one_correct:
 				one_correct = true
@@ -34,13 +38,35 @@ func _check_answers(Answers: Array[Answer]) -> bool:
 		return false
 	return true
 
+func _shuffle_answers(Answers: Array[Answer]) -> Array[Answer]:
+	var shuffled = Answers.duplicate()
+	var n = shuffled.size()
+	for i in range(n - 1, 0, -1):
+		var j = randi() % (i + 1)
+		var tmp = shuffled[i]
+		shuffled[i] = shuffled[j]
+		shuffled[j] = tmp
+	return shuffled
+
 func _set_answers(Answers: Array[Answer]) -> void:
 	if _check_answers(Answers):
+		Answers = _shuffle_answers(Answers)
 		self._Answers = Answers
+		var n = Answers.size()
+		for i in range(n):
+			add_child(Answers[i])
+			if _Answers[i] is RightAnswer:
+				self._correct_answer_ix = i
 
 func _disconnect_answers() -> void:
 	for answer in self._Answers:
 		answer.disconnect_to_target(self)
 
-func _on_answer_clicked() -> void:
+func _on_answer_clicked(answer: Answer) -> void:
 	_disconnect_answers()
+	answer.on_answer_chosen()
+	if answer is RightAnswer:
+		self.answer_chosen.emit(true)
+	else:
+		_Answers[_correct_answer_ix].highlight()
+		self.answer_chosen.emit(false)
