@@ -15,7 +15,7 @@ func _on_menu_play_pressed() -> void:
 func round_factory(round_number):
 	
 	var lambda_question = func() -> Question:
-		var question = preload("res://scenes/question.tcsn").instantiate()
+		var question = preload("res://scenes/question.tscn").instantiate()
 		match round_number:
 			1:
 				return question.setup()
@@ -33,34 +33,36 @@ func round_factory(round_number):
 	
 	var lambda_answers = func() -> Array[Answer]:
 			var answers: Array[Answer]
+			var answer = preload("res://scenes/answer.tscn").instantiate()
 			
-			var answer = preload("res://scenes/answer.tcsn")
 			var correct_answer = func(text: String) -> void:
-				answer.set_script("res://scripts/right_answer.gd")
-				answers.append(answer.instantiate().setup(text))
+				answer.set_script(preload("res://scripts/right_answer.gd"))
+				answer.setup(text)
+				answers.append(answer)
 				
 			var wrong_answers = func(texts: Array[String]) -> void:
-				answer.set_script("res://scripts/wrong_answer.gd")
+				answer.set_script(preload("res://scripts/wrong_answer.gd"))
 				for text in texts:
-					answers.append(answer.instantiate().setup(text))
+					answer.setup(text)
+					answers.append(answer)
 			
 			var make_answer = func() -> void:
 				match round_number:
 					1:
 						correct_answer.call("a")
-						wrong_answers.call("b")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					2:
 						correct_answer.call("a")
-						wrong_answers.call("b")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					3:
 						correct_answer.call("a")
-						wrong_answers.call("b")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					4:
 						correct_answer.call("a")
-						wrong_answers.call("b")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					5:
 						correct_answer.call("a")
-						wrong_answers.call("b")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					_:
 						return
 			
