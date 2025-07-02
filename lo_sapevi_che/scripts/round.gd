@@ -2,7 +2,7 @@ extends Control
 
 class_name Round
 
-signal finished
+signal kill_me
 
 static var _round_count: int
 var _question: Question
@@ -38,21 +38,23 @@ func _set_answers(answers: Array[Answer]) -> void:
 func _display_answers() -> void:
 	var n = _answers.size()
 	for i in range(n):
-		_answers[i].position.y += (_answers[i].size.y + 10) * i
+		_answers[i].position.y += (_answers[i].size.y + 35) * i
 
 func _disconnect_answers() -> void:
 	for answer in self._answers:
 		answer.disconnect_to_parent()
+		#answer.disconnect_click()
 
 func _on_answer_clicked(answer: Answer) -> void:
 	_disconnect_answers()
 	answer.on_answer_chosen()
 	GameLogic.answer_chosen(answer, _question.get_score())
-	await get_tree().create_timer(2.0).timeout 
-	_finished()
+	for ans in _answers:
+		$ExitTween.set_target_node(ans)
+		$ExitTween.start()
 
 func _on_wrong_answer() -> void:
 	_answers[GameLogic.get_correct_answer_ix(_answers)].highlight()
 
-func _finished() -> void:
-	self.finished.emit()
+func _on_exit_tween_animation_done() -> void:
+	self.kill_me.emit()
