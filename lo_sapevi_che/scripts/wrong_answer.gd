@@ -4,7 +4,7 @@ class_name WrongAnswer
 
 const HIGHLIGHT_COLOR = Color(1, 0, 0, 1) # red
 
-func setup(text):
+func setup(text) -> void:
 	super.setup(text)
 	_set_sound("res://art/sounds/wrong.mp3")
 
