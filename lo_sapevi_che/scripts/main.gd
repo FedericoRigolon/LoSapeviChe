@@ -19,19 +19,17 @@ func round_factory(round_number):
 		var question = preload("res://scenes/question.tscn").instantiate()
 		match round_number:
 			0:
-				question.setup()
-				question.set_text("tuuuuuuuuuuuuung")
+				question.setup("tung tung tung tung tung tung tung tung tung sahur")
 			1:
-				question.setup()
+				question.setup("bombardino crocodilo")
 			2:
-				question.setup()
+				question.setup("trallallero trallalla")
 			3:
-				question.setup()
+				question.setup("brr brr patapim")
 			4:
-				question.setup()
+				question.setup("scimpanzini bananini")
 			_:
 				return null
-		print(question)
 		return question
 	
 	var lambda_answers = func() -> Array[Answer]:
@@ -74,7 +72,7 @@ func round_factory(round_number):
 	
 	var round = preload("res://scenes/round.tscn").instantiate()
 	round.setup(lambda_question.call(), lambda_answers.call())
-	Round.round_count += 1
-	round.set_name("Round"+str(Round.round_count))
+	Round.increase_round_count()
+	round.set_name("Round"+str(Round.get_round_count()))
 	return round
 	

@@ -1,13 +1,11 @@
 [gd_scene load_steps=2 format=3 uid="uid://4fg65j3c6we2"]
 
-[ext_resource type="Script" uid="uid://b4pu7qyhqbcob" path="res://scripts/question.gd" id="1_lk18j"]
+[ext_resource type="Script" uid="uid://dx6clw4ykxqc3" path="res://scripts/question.gd" id="1_lk18j"]
 
 [node name="Question" type="Label"]
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -20.0
-offset_right = 20.0
+anchors_preset = 10
+anchor_right = 1.0
 offset_bottom = 23.0
 grow_horizontal = 2
+horizontal_alignment = 1
 script = ExtResource("1_lk18j")
