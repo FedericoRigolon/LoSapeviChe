@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://baisvneyhehff"]
+
+[node name="Answer" type="TextureRect"]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AnswerSound" type="AudioStreamPlayer" parent="."]

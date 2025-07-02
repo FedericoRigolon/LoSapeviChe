@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://4fg65j3c6we2"]
+
+[ext_resource type="Script" uid="uid://b4pu7qyhqbcob" path="res://scripts/question.gd" id="1_lk18j"]
+
+[node name="Question" type="Label"]
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("1_lk18j")

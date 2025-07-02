@@ -5,13 +5,12 @@ class_name Answer
 signal answer_clicked
 
 var _text: String
-var _sound
 
 func _ready() -> void:
 	#mouse_filter = Control.MOUSE_FILTER_STOP 		FORSE SERVE PER ABILITARE I CLICK (si può fare anche da ispettore)
 	pass
 
-func inizialize(text):
+func setup(text):
 	set_text(text)
 
 func connect_to_target(receiver):
@@ -28,15 +27,16 @@ func get_text() -> String:
 
 func _set_sound(path_to_sound: String) -> void:
 	var sound = load(path_to_sound)
-	if sound:
-		self._sound = sound
+	if sound is AudioStream:
+		$AnswerSound.set_stream(sound)
 
 func _highlight() -> void:
 	push_error("_highligth() must be overridden in subclasses.") # simule abstract class
 
 func _play_sound() -> void:
-	if self._sound:
-		_sound.play()
+	var sound = $AnswerSound
+	if sound.get_stream():
+		sound.play()
 
 func on_answer_chosen() -> void:
 	_highlight()
