@@ -2,20 +2,23 @@ extends Control
 
 class_name Round
 
+signal finished
+
 static var _round_count: int
 var _question: Question
-var _Answers: Array[Answer]
-var _correct_answer_ix: int
+var _answers: Array[Answer]
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-func setup(question: Question, Answers: Array[Answer]) -> void:
+func setup(question: Question, answers: Array[Answer]) -> void:
 	_set_question(question)
-	_set_answers(Answers)
-	for answer in self._Answers:
+	_set_answers(answers)
+	_display_answers()
+	for answer in self._answers:
 		answer.connect_to_parent()
+	GameLogic.wrong_answer.connect(_on_wrong_answer)
 
 static func increase_round_count() -> void:
 	_round_count += 1
@@ -27,23 +30,29 @@ func _set_question(question: Question) -> void:
 	self._question = question
 	add_child(question)
 
-func _set_answers(Answers: Array[Answer]) -> void:
-	self._Answers = Answers
-	var n = Answers.size()
+func _set_answers(answers: Array[Answer]) -> void:
+		self._answers = answers
+		for answer in answers:
+			add_child(answer)
+
+func _display_answers() -> void:
+	var n = _answers.size()
 	for i in range(n):
-		add_child(Answers[i])
-		if _Answers[i] is RightAnswer:
-			self._correct_answer_ix = i
+		_answers[i].position.y += (_answers[i].size.y + 10) * i
 
 func _disconnect_answers() -> void:
-	for answer in self._Answers:
+	for answer in self._answers:
 		answer.disconnect_to_parent()
 
 func _on_answer_clicked(answer: Answer) -> void:
 	_disconnect_answers()
 	answer.on_answer_chosen()
-	if answer is RightAnswer:
-		GameLogic.answer_chosen(true, _question.get_score())
-	else:
-		_Answers[_correct_answer_ix].highlight()
-		GameLogic.answer_chosen(false, _question.get_score())
+	GameLogic.answer_chosen(answer, _question.get_score())
+	await get_tree().create_timer(2.0).timeout 
+	_finished()
+
+func _on_wrong_answer() -> void:
+	_answers[GameLogic.get_correct_answer_ix(_answers)].highlight()
+
+func _finished() -> void:
+	self.finished.emit()

@@ -1,4 +1,4 @@
-extends ColorRect
+extends Button
 
 class_name Answer
 
@@ -9,7 +9,8 @@ func _ready() -> void:
 	pass
 
 func setup(text: String) -> void:
-	set_text(text)
+	_set_text(text)
+	pressed.connect(_on_pressed)
 
 func connect_to_parent() -> void:
 	self.answer_clicked.connect(get_parent()._on_answer_clicked)
@@ -17,10 +18,10 @@ func connect_to_parent() -> void:
 func disconnect_to_parent() -> void:
 	self.answer_clicked.disconnect(get_parent()._on_answer_clicked)
 
-func set_text(text: String):
+func _set_text(text: String) -> void:
 	$Text.set_text(text)
 
-func get_text() -> String:
+func _get_text() -> String:
 	return $Text.get_text()
 
 func _set_sound(path_to_sound: String) -> void:
@@ -40,6 +41,5 @@ func on_answer_chosen() -> void:
 	highlight()
 	_play_sound()
 
-func _on_gui_event(event: InputEventMouseButton) -> void:
-	if event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
-		self.answer_clicked.emit(self)
+func _on_pressed() -> void:
+	self.answer_clicked.emit(self)
