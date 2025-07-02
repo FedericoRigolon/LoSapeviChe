@@ -1,10 +1,8 @@
-extends TextureRect
+extends ColorRect
 
 class_name Answer
 
 signal answer_clicked
-
-var _text: String
 
 func _ready() -> void:
 	#mouse_filter = Control.MOUSE_FILTER_STOP 		FORSE SERVE PER ABILITARE I CLICK (si può fare anche da ispettore)
@@ -20,10 +18,10 @@ func disconnect_to_parent() -> void:
 	self.answer_clicked.disconnect(get_parent()._on_answer_clicked)
 
 func set_text(text: String):
-	self._text = text
+	$Text.set_text(text)
 
 func get_text() -> String:
-	return self._text
+	return $Text.get_text()
 
 func _set_sound(path_to_sound: String) -> void:
 	var sound = load(path_to_sound)
