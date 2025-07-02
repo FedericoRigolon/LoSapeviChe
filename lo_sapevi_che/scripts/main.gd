@@ -3,11 +3,12 @@ extends Node
 
 
 func _on_menu_play_pressed() -> void:
-	print("scimpanzini bananini")
-	const ROUNDS = 5
+	#print("scimpanzini bananini")
+	const ROUNDS = 1
 	for r in range(ROUNDS):
 		var round = round_factory(r)
 		add_child(round)
+	print_tree_pretty()
 		#await roba
 		#remove_child(round)
 		#round.queue_free()
@@ -17,18 +18,20 @@ func round_factory(round_number):
 	var lambda_question = func() -> Question:
 		var question = preload("res://scenes/question.tscn").instantiate()
 		match round_number:
+			0:
+				question.setup()
+				question.set_text("tuuuuuuuuuuuuung")
 			1:
-				return question.setup()
+				question.setup()
 			2:
-				return question.setup()
+				question.setup()
 			3:
-				return question.setup()
+				question.setup()
 			4:
-				return question.setup()
-			5:
-				return question.setup()
+				question.setup()
 			_:
 				return null
+		print(question)
 		return question
 	
 	var lambda_answers = func() -> Array[Answer]:
@@ -48,6 +51,9 @@ func round_factory(round_number):
 			
 			var make_answer = func() -> void:
 				match round_number:
+					0:
+						correct_answer.call("a")
+						wrong_answers.call(["b", "c", "d"] as Array[String])
 					1:
 						correct_answer.call("a")
 						wrong_answers.call(["b", "c", "d"] as Array[String])
@@ -60,9 +66,6 @@ func round_factory(round_number):
 					4:
 						correct_answer.call("a")
 						wrong_answers.call(["b", "c", "d"] as Array[String])
-					5:
-						correct_answer.call("a")
-						wrong_answers.call(["b", "c", "d"] as Array[String])
 					_:
 						return
 			
@@ -71,5 +74,7 @@ func round_factory(round_number):
 	
 	var round = preload("res://scenes/round.tscn").instantiate()
 	round.setup(lambda_question.call(), lambda_answers.call())
+	Round.round_count += 1
+	round.set_name("Round"+str(Round.round_count))
 	return round
 	

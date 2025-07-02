@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://d30qap5ik1mye"]
 
-[ext_resource type="Script" uid="uid://xerumy06a5u5" path="res://scripts/round.gd" id="1_vfk7k"]
+[ext_resource type="Script" uid="uid://5kkgy4p5gce0" path="res://scripts/round.gd" id="1_vfk7k"]
 
 [node name="Round" type="Control"]
 layout_mode = 3
@@ -13,10 +13,4 @@ script = ExtResource("1_vfk7k")
 layout_mode = 0
 offset_right = 1156.0
 offset_bottom = 646.0
-color = Color(1, 0.286275, 1, 1)
-
-[node name="Question" type="Label" parent="."]
-layout_mode = 0
-offset_right = 1145.0
-offset_bottom = 251.0
-text = "TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG TUNG SAHUR"
+color = Color(0, 0, 0, 1)
