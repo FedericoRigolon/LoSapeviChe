@@ -10,6 +10,7 @@ offset_bottom = 40.0
 script = ExtResource("1_vfk7k")
 
 [node name="Background" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 1156.0
 offset_bottom = 646.0
 color = Color(1, 0.286275, 1, 1)
