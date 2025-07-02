@@ -18,10 +18,10 @@ func disconnect_to_parent() -> void:
 	self.answer_clicked.disconnect(get_parent()._on_answer_clicked)
 
 func set_text(text: String):
-	$Text.set_text(text)
+	$AnswerText.set_text(text)
 
 func get_text() -> String:
-	return $Text.get_text()
+	return $AnswerText.get_text()
 
 func _set_sound(path_to_sound: String) -> void:
 	var sound = load(path_to_sound)
