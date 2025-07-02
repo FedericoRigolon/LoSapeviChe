@@ -60,8 +60,7 @@ func round_factory(round_number):
 			return answers
 	
 	var round = preload("res://scenes/round.tscn").instantiate()
-	round.new()
-	round.setup(lambda_question.call(round_number), lambda_answers.call(round_number))
+	round.setup(lambda_question.call(), lambda_answers.call())
 	Round.round_count += 1
 	return round
 	
