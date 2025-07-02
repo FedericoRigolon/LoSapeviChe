@@ -18,7 +18,13 @@ func setup(question: Question, Answers: Array[Answer]) -> void:
 	_set_question(question)
 	_set_answers(Answers)
 	for answer in self._Answers:
-		answer.connect_to_target(self)
+		answer.connect_to_parent()
+
+func increase_round_count() -> void:
+	round_count += 1
+	
+func get_round_count() -> int:
+	return round_count
 
 func _set_question(question: Question) -> void:
 	self._question = question
@@ -61,13 +67,13 @@ func _set_answers(Answers: Array[Answer]) -> void:
 
 func _disconnect_answers() -> void:
 	for answer in self._Answers:
-		answer.disconnect_to_target(self)
+		answer.disconnect_to_parent()
 
 func _on_answer_clicked(answer: Answer) -> void:
 	_disconnect_answers()
 	answer.on_answer_chosen()
 	if answer is RightAnswer:
-		self.answer_chosen.emit(true)
+		self.answer_chosen.emit(true, _question.get_score())
 	else:
 		_Answers[_correct_answer_ix].highlight()
-		self.answer_chosen.emit(false)
+		self.answer_chosen.emit(false, _question.get_score())
