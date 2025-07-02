@@ -11,12 +11,14 @@ func _ready() -> void:
 	#mouse_filter = Control.MOUSE_FILTER_STOP 		FORSE SERVE PER ABILITARE I CLICK (si può fare anche da ispettore)
 	pass
 
-func inizialize(text) -> Answer:
+func inizialize(text):
 	set_text(text)
-	return self
 
 func connect_to_target(receiver):
 	self.answer_clicked.connect(receiver._on_answer_clicked)
+
+func disconnect_to_target(receiver):
+	self.answer_clicked.disconnect(receiver._on_answer_clicked)
 
 func set_text(text: String):
 	self._text = text
