@@ -6,6 +6,7 @@ var _question: Question
 var _Answers: Array[Answer]
 var _correct_answer_ix: int
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
