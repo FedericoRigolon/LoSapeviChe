@@ -1,33 +1,63 @@
-[gd_scene format=3 uid="uid://baisvneyhehff"]
+[gd_scene load_steps=7 format=3 uid="uid://baisvneyhehff"]
+
+[ext_resource type="Shader" uid="uid://fpwnv7o4h82f" path="res://art/styles/button_shader.gdshader" id="1_rpycv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fbhu7"]
+shader = ExtResource("1_rpycv")
+shader_parameter/top_inclination = 0.18
+shader_parameter/left_margin = 0.1
+shader_parameter/right_margin = 0.08
+shader_parameter/smoothness = 0.002
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbhu7"]
+bg_color = Color(1, 0.831373, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rpycv"]
+bg_color = Color(1, 0.745098, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kolil"]
+bg_color = Color(1, 0.831373, 0, 1)
+
+[sub_resource type="Theme" id="Theme_rpycv"]
+Button/styles/disabled = null
+Button/styles/hover = SubResource("StyleBoxFlat_fbhu7")
+Button/styles/normal = SubResource("StyleBoxFlat_rpycv")
+Button/styles/pressed = SubResource("StyleBoxFlat_kolil")
 
 [node name="Answer" type="Button"]
+material = SubResource("ShaderMaterial_fbhu7")
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -300.0
+offset_left = -140.0
 offset_top = -20.0
-offset_right = 300.0
-offset_bottom = 40.0
+offset_right = 140.0
+offset_bottom = 60.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+focus_mode = 0
+theme = SubResource("Theme_rpycv")
+text = "
+"
 
-[node name="AnswerText" type="Label" parent="."]
+[node name="Text" type="Label" parent="."]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -26.5
+offset_left = -15.5
 offset_top = -11.5
-offset_right = 26.5
+offset_right = 15.5
 offset_bottom = 11.5
 grow_horizontal = 2
 grow_vertical = 2
+text = "hh"
 horizontal_alignment = 1
 
 [node name="AnswerSound" type="AudioStreamPlayer" parent="."]

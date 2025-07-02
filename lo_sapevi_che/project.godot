@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="LoSapeviChe"
-run/main_scene="uid://cjr3l27r8gvnr"
+run/main_scene="uid://csp5k6exdjyu4"
 config/features=PackedStringArray("4.4", "Mobile")
 config/icon="res://icon.svg"
 
