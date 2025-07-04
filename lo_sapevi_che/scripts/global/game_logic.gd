@@ -47,8 +47,15 @@ func get_correct_answer_ix(answers: Array[Answer]) -> int:
 func get_score() -> int:
 	return self._score
 
+func increase_max_score(score: int) -> void:
+	self._max_score += score
+
 func get_max_score() -> int:
 	return self._max_score
 
 func win() -> bool:
 	return self._score >= _max_score
+
+func reset() -> void:
+	self._score = 0
+	self._max_score = 0

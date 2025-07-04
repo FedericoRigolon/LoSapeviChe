@@ -14,6 +14,9 @@ func connect_to_parent() -> void:
 func disconnect_to_parent() -> void:
 	self.answer_clicked.disconnect(get_parent()._on_answer_clicked)
 
+func disconnect_click() -> void:
+	self.disabled = true
+
 func _set_text(text: String) -> void:
 	$Text.set_text(text)
 

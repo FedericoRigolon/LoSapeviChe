@@ -4,7 +4,10 @@ const DATA_PATH = "res://data/question_answer.csv"
 const MAX_ROUND = 5
 var seeks : Array[int]
 
-func _ready():
+func reset():
+	self.seeks = []
+
+func start():
 	if not seeks_setup():
 		return
 	
@@ -12,6 +15,7 @@ func create_round(round_number: int) -> Round:
 	var round = preload("res://scenes/round.tscn").instantiate()
 	var data : Dictionary = _read_csv(self.seeks[round_number])
 	round.setup(_create_question(data["question"], data["value"]), GameLogic.manage_answers(_create_answers(data["answers"])))
+	GameLogic.increase_max_score(round.get_question().get_score())
 	Round.increase_round_count()
 	round.set_name("Round" + str(Round.get_round_count()))
 	return round
@@ -43,7 +47,6 @@ func seeks_setup() -> bool :
 		array.shuffle()
 		# rows to pick
 		row_indices = array.slice(0, self.MAX_ROUND)
-		print(row_indices)
 	# low probability of ripetition or big array --> pick random
 	else:
 		for i in self.MAX_ROUND:

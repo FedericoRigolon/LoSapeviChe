@@ -4,13 +4,26 @@ func _on_menu_play_pressed() -> void:
 	var menu = get_node("Menu")
 	remove_child(menu)
 	
+	RoundFactory.start()
 	await _create_rounds()
 	
-	var win = GameLogic.win()
 	var score = GameLogic.get_score()
+	var win = GameLogic.win()
 	print(score)
 	print(win)
+	GameLogic.reset()
+	RoundFactory.reset()
+	
+	menu.play_pressed.disconnect(_on_menu_play_pressed)
+	menu.play_pressed.connect(_on_end_menu_play_pressed)
 	add_child(menu)
+	if(win):
+		menu.winner_menu()
+	else:
+		menu.loser_menu()
+
+func _on_end_menu_play_pressed() -> void:
+	get_tree().reload_current_scene()
 
 func _create_rounds():
 	const ROUNDS = 5
