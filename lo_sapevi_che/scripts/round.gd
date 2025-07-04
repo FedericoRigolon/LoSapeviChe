@@ -30,9 +30,9 @@ func _set_question(question: Question) -> void:
 	add_child(question)
 
 func _set_answers(answers: Array[Answer]) -> void:
-		self._answers = answers
-		for answer in answers:
-			add_child(answer)
+	self._answers = answers
+	for answer in answers:
+		add_child(answer)
 
 func get_question() -> Question:
 	return self._question
@@ -57,6 +57,7 @@ func _on_answer_clicked(answer: Answer) -> void:
 	for ans in _answers:
 		$Tween.set_target_node(ans)
 		$Tween.start(1.0, false)
+	#_update_score_label()
 
 func _on_wrong_answer() -> void:
 	_answers[GameLogic.get_correct_answer_ix(_answers)].highlight()
@@ -67,3 +68,10 @@ func _on_exit_tween_animation_done() -> void:
 func _on_tree_entered() -> void:
 	await get_tree().process_frame
 	_display_answers()
+	#_update_score_label()
+
+func _update_score_label() -> void:
+	self.visible = false
+	await get_tree().process_frame
+	$ScoreLabel.set_text(str(GameLogic.get_score()) + "/" + str(GameLogic.get_max_score()))
+	self.visible = true

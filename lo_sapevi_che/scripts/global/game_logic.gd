@@ -5,7 +5,7 @@ signal wrong_answer
 var _score: int = 0
 var _max_score: int = 0
 
-func _check_answers(answers: Array[Answer]) -> void:
+func _check_answers(answers: Array[Answer]) -> bool:
 	var one_correct = false
 	var n = answers.size()
 	for i in range(n):
@@ -14,8 +14,11 @@ func _check_answers(answers: Array[Answer]) -> void:
 				one_correct = true
 			else:
 				push_error("There must be exactly one correct answer")
+				return false
 	if not one_correct:
 		push_error("There must be exactly one correct answer")
+		return false
+	return true
 
 func _shuffle_answers(answers: Array[Answer]) -> Array[Answer]:
 	var shuffled = answers.duplicate()
@@ -28,8 +31,10 @@ func _shuffle_answers(answers: Array[Answer]) -> Array[Answer]:
 	return shuffled
 
 func manage_answers(answers: Array[Answer]) -> Array[Answer]:
-	_check_answers(answers)
-	return _shuffle_answers(answers)
+	if(_check_answers(answers)):
+		return _shuffle_answers(answers)
+	else:
+		return []
 
 func answer_chosen(answer: Answer, score: int) -> void:
 	if answer is RightAnswer:
@@ -54,7 +59,7 @@ func get_max_score() -> int:
 	return self._max_score
 
 func win() -> bool:
-	return self._score >= _max_score
+	return self._score >= self._max_score
 
 func reset() -> void:
 	self._score = 0

@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 GameLogic="*res://scripts/global/game_logic.gd"
 RoundFactory="*res://scripts/global/round_factory.gd"
 
+[display]
+
+window/stretch/mode="viewport"
+
 [rendering]
 
 renderer/rendering_method="mobile"

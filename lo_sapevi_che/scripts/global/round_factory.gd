@@ -8,8 +8,7 @@ func reset():
 	self.seeks = []
 
 func start():
-	if not seeks_setup():
-		return
+	seeks_setup()
 	
 func create_round(round_number: int) -> Round:
 	var round = preload("res://scenes/round.tscn").instantiate()
@@ -20,7 +19,7 @@ func create_round(round_number: int) -> Round:
 	round.set_name("Round" + str(Round.get_round_count()))
 	return round
 
-func seeks_setup() -> bool :
+func seeks_setup() -> bool:
 	var file := FileAccess.open(self.DATA_PATH, FileAccess.READ)
 	
 	if file == null:
@@ -35,7 +34,6 @@ func seeks_setup() -> bool :
 		file.get_line()
 	size -= 1
 	offsets.pop_back()
-	
 	
 	var row_indices : Array
 	# this formula takes n (total elements) and k (elements to pick up) and chose the most efficient algorithm
