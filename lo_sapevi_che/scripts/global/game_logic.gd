@@ -1,10 +1,9 @@
 extends Node	# needed for autoload (singleton)
 
-const MAX_SCORE = 5
-
 signal wrong_answer
 
 var _score: int = 0
+var _max_score: int = 0
 
 func _check_answers(answers: Array[Answer]) -> void:
 	var one_correct = false
@@ -47,3 +46,9 @@ func get_correct_answer_ix(answers: Array[Answer]) -> int:
 
 func get_score() -> int:
 	return self._score
+
+func get_max_score() -> int:
+	return self._max_score
+
+func win() -> bool:
+	return self._score >= _max_score

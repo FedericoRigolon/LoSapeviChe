@@ -17,8 +17,8 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameLogic="*res://global/game_logic.gd"
-RoundFactory="*res://scripts/round_factory.gd"
+GameLogic="*res://scripts/global/game_logic.gd"
+RoundFactory="*res://scripts/global/round_factory.gd"
 
 [rendering]
 

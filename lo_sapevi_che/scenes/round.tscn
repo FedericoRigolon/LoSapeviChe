@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d30qap5ik1mye"]
 
-[ext_resource type="Script" uid="uid://5kkgy4p5gce0" path="res://scripts/round.gd" id="1_vfk7k"]
-[ext_resource type="Script" uid="uid://ccrhtqd15h0av" path="res://scripts/exit_tween.gd" id="2_xi36r"]
+[ext_resource type="Script" uid="uid://xerumy06a5u5" path="res://scripts/round.gd" id="1_vfk7k"]
+[ext_resource type="Script" uid="uid://cj5vngkci5bn1" path="res://scripts/exit_tween.gd" id="2_xi36r"]
 
 [node name="Round" type="Control"]
 layout_mode = 3
