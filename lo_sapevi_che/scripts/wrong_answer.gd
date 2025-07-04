@@ -9,4 +9,4 @@ func setup(text: String) -> void:
 	_set_sound("res://art/sounds/wrong.mp3")
 
 func highlight() -> void:
-	self.modulate = HIGHLIGHT_COLOR
+	self.self_modulate = HIGHLIGHT_COLOR

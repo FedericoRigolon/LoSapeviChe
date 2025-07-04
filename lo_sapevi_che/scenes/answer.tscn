@@ -1,6 +1,6 @@
-[gd_scene load_steps=7 format=3 uid="uid://baisvneyhehff"]
+[gd_scene load_steps=8 format=3 uid="uid://baisvneyhehff"]
 
-[ext_resource type="Shader" uid="uid://dvfqmb21076s8" path="res://art/styles/button_shader.gdshader" id="1_rpycv"]
+[ext_resource type="Shader" uid="uid://fpwnv7o4h82f" path="res://art/styles/button_shader.gdshader" id="1_rpycv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_fbhu7"]
 shader = ExtResource("1_rpycv")
@@ -8,6 +8,9 @@ shader_parameter/top_inclination = 0.18
 shader_parameter/left_margin = 0.1
 shader_parameter/right_margin = 0.08
 shader_parameter/smoothness = 0.002
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_kxifx"]
+bg_color = Color(1, 0.745098, 0, 1)
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fbhu7"]
 bg_color = Color(1, 0.831373, 0, 1)
@@ -19,7 +22,7 @@ bg_color = Color(1, 0.745098, 0, 1)
 bg_color = Color(1, 0.831373, 0, 1)
 
 [sub_resource type="Theme" id="Theme_rpycv"]
-Button/styles/disabled = null
+Button/styles/disabled = SubResource("StyleBoxFlat_kxifx")
 Button/styles/hover = SubResource("StyleBoxFlat_fbhu7")
 Button/styles/normal = SubResource("StyleBoxFlat_rpycv")
 Button/styles/pressed = SubResource("StyleBoxFlat_kolil")

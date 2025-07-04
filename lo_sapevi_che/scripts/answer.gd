@@ -4,10 +4,6 @@ class_name Answer
 
 signal answer_clicked
 
-func _ready() -> void:
-	#mouse_filter = Control.MOUSE_FILTER_STOP 		FORSE SERVE PER ABILITARE I CLICK (si può fare anche da ispettore)
-	pass
-
 func setup(text: String) -> void:
 	_set_text(text)
 	pressed.connect(_on_pressed)
