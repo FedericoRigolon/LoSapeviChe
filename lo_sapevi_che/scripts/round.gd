@@ -25,6 +25,9 @@ static func increase_round_count() -> void:
 static func get_round_count() -> int:
 	return _round_count
 
+static func reset_round_count() -> void:
+	_round_count = 0
+
 func _set_question(question: Question) -> void:
 	self._question = question
 	add_child(question)
@@ -66,6 +69,7 @@ func _on_exit_tween_animation_done() -> void:
 	self.kill_me.emit()
 
 func _on_tree_entered() -> void:
+	$RoundLabel.set_text(str(Round.get_round_count()))
 	await get_tree().process_frame
 	_display_answers()
 	#_update_score_label()

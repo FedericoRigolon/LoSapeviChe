@@ -6,6 +6,7 @@ var seeks : Array[int]
 
 func reset():
 	self.seeks = []
+	Round.reset_round_count()
 
 func start():
 	seeks_setup()
