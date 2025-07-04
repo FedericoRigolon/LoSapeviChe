@@ -2,6 +2,9 @@ extends Node	# needed for autoload (singleton)
 
 signal wrong_answer
 
+const MAX_ROUND = 5
+
+var _correct_answer: int = 0
 var _score: int = 0
 var _max_score: int = 0
 
@@ -39,6 +42,7 @@ func manage_answers(answers: Array[Answer]) -> Array[Answer]:
 func answer_chosen(answer: Answer, score: int) -> void:
 	if answer is RightAnswer:
 		self._score += score
+		self._correct_answer += 1
 	else:
 		self.wrong_answer.emit()
 
@@ -58,9 +62,13 @@ func increase_max_score(score: int) -> void:
 func get_max_score() -> int:
 	return self._max_score
 
+func get_correct_answer() -> int:
+	return self._correct_answer
+
 func win() -> bool:
 	return self._score >= self._max_score
 
 func reset() -> void:
 	self._score = 0
 	self._max_score = 0
+	self._correct_answer = 0

@@ -1,7 +1,7 @@
 extends Node
 
 const DATA_PATH = "res://data/question_answer.csv"
-const MAX_ROUND = 5
+
 var seeks : Array[int]
 
 func reset():
@@ -39,16 +39,16 @@ func seeks_setup() -> bool:
 	var row_indices : Array
 	# this formula takes n (total elements) and k (elements to pick up) and chose the most efficient algorithm
 	# high probability of ripetition or low size --> shuffle array
-	if float(self.MAX_ROUND * (self.MAX_ROUND - 1)) > -2 * size * log(0.9):
+	if float(GameLogic.MAX_ROUND * (GameLogic.MAX_ROUND - 1)) > -2 * size * log(0.9):
 		var array = []
 		for i in size:
 			array.append(i)
 		array.shuffle()
 		# rows to pick
-		row_indices = array.slice(0, self.MAX_ROUND)
+		row_indices = array.slice(0, GameLogic.MAX_ROUND)
 	# low probability of ripetition or big array --> pick random
 	else:
-		for i in self.MAX_ROUND:
+		for i in GameLogic.MAX_ROUND:
 			var el = randi_range(0, size - 1)
 			while el in row_indices:
 				el = randi_range(0, size - 1)
