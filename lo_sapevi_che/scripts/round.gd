@@ -58,3 +58,7 @@ func _on_wrong_answer() -> void:
 
 func _on_exit_tween_animation_done() -> void:
 	self.kill_me.emit()
+
+
+func _on_tree_entered() -> void:
+	_on_answer_clicked(_answers[0])

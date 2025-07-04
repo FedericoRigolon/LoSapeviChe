@@ -28,4 +28,5 @@ script = ExtResource("2_xi36r")
 distance = Vector2(550, 0)
 duration = 0.8
 
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="animation_done" from="ExitTween" to="." method="_on_exit_tween_animation_done"]
