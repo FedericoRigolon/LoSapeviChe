@@ -6,10 +6,10 @@ uid="uid://ci3gwcoxutd60"
 
 [deps]
 
-files=["res://data/question_answer. a.translation", "res://data/question_answer. b.translation", "res://data/question_answer. c.translation"]
+files=["res://data/question_answer. 1.translation", "res://data/question_answer. a.translation", "res://data/question_answer. b.translation", "res://data/question_answer. c.translation"]
 
 source_file="res://data/question_answer.csv"
-dest_files=["res://data/question_answer. a.translation", "res://data/question_answer. b.translation", "res://data/question_answer. c.translation"]
+dest_files=["res://data/question_answer. 1.translation", "res://data/question_answer. a.translation", "res://data/question_answer. b.translation", "res://data/question_answer. c.translation"]
 
 [params]
 
