@@ -51,7 +51,7 @@ func _on_answer_clicked(answer: Answer) -> void:
 	GameLogic.answer_chosen(answer, _question.get_score())
 	for ans in _answers:
 		$ExitTween.set_target_node(ans)
-		$ExitTween.start()
+		$ExitTween.start(1.0)
 
 func _on_wrong_answer() -> void:
 	_answers[GameLogic.get_correct_answer_ix(_answers)].highlight()
