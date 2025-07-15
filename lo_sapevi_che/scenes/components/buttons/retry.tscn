@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dywlidbjvn71p"]
+
+[ext_resource type="PackedScene" uid="uid://cixb2slrwfeax" path="res://scenes/components/buttons/custom_button.tscn" id="1_dc135"]
+
+[node name="Retry" instance=ExtResource("1_dc135")]
+
+[node name="Text" parent="." index="0"]
+text = "Torna al sito"

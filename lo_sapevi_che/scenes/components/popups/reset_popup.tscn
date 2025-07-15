@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://b58mhp2m3rr8y"]
+
+[ext_resource type="PackedScene" uid="uid://mgklm4qm7xq8" path="res://scenes/components/popups/tutorial.tscn" id="1_wdb7a"]
+[ext_resource type="PackedScene" uid="uid://cixb2slrwfeax" path="res://scenes/components/buttons/custom_button.tscn" id="2_rb0lb"]
+[ext_resource type="Script" uid="uid://d3aakrebhthry" path="res://scripts/gui/components/tutorial.gd" id="2_tvmof"]
+[ext_resource type="Script" uid="uid://0a3r1qrrt2to" path="res://scripts/gui/components/tuto_text.gd" id="4_2xcqb"]
+
+[node name="ResetPopup" instance=ExtResource("1_wdb7a")]
+offset_bottom = 354.0
+script = ExtResource("2_tvmof")
+
+[node name="Title" parent="." index="1"]
+text = "Vuoi ricominciare?"
+
+[node name="Advice" parent="." index="2"]
+text = "Il gioco ripartirà da capo e dovrai ricominciare.
+ Sei sicuro?
+"
+autowrap_mode = 3
+
+[node name="Nope" parent="SplitContainer" index="0" instance=ExtResource("2_rb0lb")]
+custom_minimum_size = Vector2(240.5, 62)
+layout_mode = 2
+script = ExtResource("4_2xcqb")
+
+[node name="Go" parent="SplitContainer" index="1"]
+script = ExtResource("4_2xcqb")
+
+[connection signal="pressed" from="SplitContainer/Nope" to="." method="_on_nope_pressed"]

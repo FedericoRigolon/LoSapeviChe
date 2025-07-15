@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://baisvneyhehff"]
+
+[ext_resource type="PackedScene" uid="uid://cixb2slrwfeax" path="res://scenes/components/buttons/custom_button.tscn" id="1_rpycv"]
+
+[node name="Answer" instance=ExtResource("1_rpycv")]
+anchors_preset = 14
+anchor_left = 0.0
+anchor_right = 1.0
+offset_left = 1100.0
+offset_top = 62.0
+offset_right = 792.0
+offset_bottom = 134.0
+scale = Vector2(1, 0.916)
+
+[node name="AnswerSound" type="AudioStreamPlayer" parent="." index="1"]

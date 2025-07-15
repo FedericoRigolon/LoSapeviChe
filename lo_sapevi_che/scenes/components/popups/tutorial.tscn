@@ -1,0 +1,80 @@
+[gd_scene load_steps=7 format=3 uid="uid://mgklm4qm7xq8"]
+
+[ext_resource type="Script" uid="uid://d3aakrebhthry" path="res://scripts/gui/components/tutorial.gd" id="1_5jwdl"]
+[ext_resource type="Texture2D" uid="uid://b2ig2hqj3mpxc" path="res://art/graphics/Confirm.png" id="1_c13y7"]
+[ext_resource type="PackedScene" uid="uid://cixb2slrwfeax" path="res://scenes/components/buttons/custom_button.tscn" id="2_ph3nu"]
+[ext_resource type="Script" uid="uid://0a3r1qrrt2to" path="res://scripts/gui/components/tuto_text.gd" id="4_bkauq"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_c13y7"]
+font_size = 34
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8ho6b"]
+font_size = 24
+font_color = Color(0.229112, 0.229112, 0.229112, 1)
+
+[node name="TutorialPopup" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 612.0
+offset_bottom = 290.0
+script = ExtResource("1_5jwdl")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c13y7")
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_left = 48.0
+offset_top = 48.0
+offset_right = -48.0
+offset_bottom = 96.0
+grow_horizontal = 2
+text = "Come giocare"
+label_settings = SubResource("LabelSettings_c13y7")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Advice" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = 48.0
+offset_top = -53.0
+offset_right = -48.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Trova la risposta giusta."
+label_settings = SubResource("LabelSettings_8ho6b")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="SplitContainer" type="SplitContainer" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 53.5
+offset_top = -110.0
+offset_right = -53.5
+offset_bottom = -48.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Go" parent="SplitContainer" instance=ExtResource("2_ph3nu")]
+layout_mode = 2
+script = ExtResource("4_bkauq")
+
+[connection signal="pressed" from="SplitContainer/Go" to="." method="_on_go_pressed"]

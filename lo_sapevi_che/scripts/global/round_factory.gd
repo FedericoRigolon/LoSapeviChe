@@ -12,7 +12,7 @@ func start():
 	seeks_setup()
 	
 func create_round(round_number: int) -> Round:
-	var round = preload("res://scenes/round.tscn").instantiate()
+	var round = preload("res://scenes/components/round.tscn").instantiate()
 	var data : Dictionary = _read_csv(self.seeks[round_number])
 	round.setup(_create_question(data["question"], data["value"]), GameLogic.manage_answers(_create_answers(data["answers"])))
 	GameLogic.increase_max_score(round.get_question().get_score())
@@ -78,19 +78,19 @@ func _read_csv(seek_position: int):
 	return data
 	
 func _create_question(text: String, value: int) -> Question:
-	var question = preload("res://scenes/question.tscn").instantiate()
+	var question = preload("res://scenes/components/buttons/question.tscn").instantiate()
 	question.setup(text, value)
 	return question
 
 func _create_correct_answer(text: String) -> RightAnswer:
-	var answer = preload("res://scenes/answer.tscn").instantiate()
-	answer.set_script(preload("res://scripts/right_answer.gd"))
+	var answer = preload("res://scenes/components/buttons/answer.tscn").instantiate()
+	answer.set_script(preload("res://scripts/gui/components/round/answer/right_answer.gd"))
 	answer.setup(text)
 	return answer
 
 func _create_wrong_answer(text: String) -> WrongAnswer:
-	var answer = preload("res://scenes/answer.tscn").instantiate()
-	answer.set_script(preload("res://scripts/wrong_answer.gd"))
+	var answer = preload("res://scenes/components/buttons/answer.tscn").instantiate()
+	answer.set_script(preload("res://scripts/gui/components/round/answer/wrong_answer.gd"))
 	answer.setup(text)
 	return answer
 
