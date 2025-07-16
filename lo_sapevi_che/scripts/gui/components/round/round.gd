@@ -31,6 +31,8 @@ static func reset_round_count() -> void:
 
 func _set_question(question: Question) -> void:
 	self._question = question
+	#if Round.get_round_count() == 1:
+	#	await 
 	add_child(question)
 
 func _set_answers(answers: Array[Answer]) -> void:
@@ -43,7 +45,7 @@ func get_question() -> Question:
 	return self._question
 
 func _display_answers() -> void:
-	print("ccc")
+	Utils.debug_print(self)
 	var n = _answers.size()
 	for i in range(n):
 		_answers[i].position.y += (_answers[i].size.y + 20) * i
@@ -67,7 +69,7 @@ func _on_answer_clicked(answer: Answer) -> void:
 	GameLogic.answer_chosen(answer, _question.get_score())
 	for ans in _answers:
 		$AnswersAnimation.set_target_node(ans)
-		$AnswersAnimation.start(1.0, false)
+		$AnswersAnimation.start(0.5, false)
 
 func _on_wrong_answer() -> void:
 	_answers[GameLogic.get_correct_answer_ix(_answers)].highlight()

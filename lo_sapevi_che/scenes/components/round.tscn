@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://d30qap5ik1mye"]
 
 [ext_resource type="Script" uid="uid://bqs70cpqsciwh" path="res://scripts/gui/components/round/round.gd" id="1_7ts5f"]
-[ext_resource type="Script" uid="uid://r3kffwi46tpe" path="res://scripts/gui/components/label_animations.gd" id="2_gk7nc"]
+[ext_resource type="Script" uid="uid://r3kffwi46tpe" path="res://scripts/gui/components/answer_animations.gd" id="2_gk7nc"]
 
 [node name="Round" type="Control"]
 layout_mode = 3

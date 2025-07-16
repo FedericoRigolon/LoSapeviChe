@@ -49,6 +49,7 @@ func _create_rounds():
 		await round.kill_me
 		gui.remove_child(round)
 		round.queue_free()
+	gui.game_over()
 
 
 func _on_menu_back_pressed() -> void:

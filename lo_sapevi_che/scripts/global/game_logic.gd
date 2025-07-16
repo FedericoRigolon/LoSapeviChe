@@ -8,6 +8,9 @@ var _correct_answer: int = 0
 var _score: int = 0
 var _max_score: int = 0
 
+func get_max_round() -> int:
+	return MAX_ROUND
+	
 func _check_answers(answers: Array[Answer]) -> bool:
 	var one_correct = false
 	var n = answers.size()
@@ -23,19 +26,10 @@ func _check_answers(answers: Array[Answer]) -> bool:
 		return false
 	return true
 
-func _shuffle_answers(answers: Array[Answer]) -> Array[Answer]:
-	var shuffled = answers.duplicate()
-	var n = shuffled.size()
-	for i in range(n - 1, 0, -1):
-		var j = randi() % (i + 1)
-		var tmp = shuffled[i]
-		shuffled[i] = shuffled[j]
-		shuffled[j] = tmp
-	return shuffled
-
 func manage_answers(answers: Array[Answer]) -> Array[Answer]:
 	if(_check_answers(answers)):
-		return _shuffle_answers(answers)
+		answers.shuffle()
+		return answers
 	else:
 		return []
 

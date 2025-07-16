@@ -14,7 +14,7 @@ func _on_back_pressed() -> void:
 func _on_tree_entered() -> void:
 	var tween = create_tween()
 	self.modulate.a = 0.0
-	tween.tween_property(self, "modulate:a", 1.0, 2)
+	tween.tween_property(self, "modulate:a", 1.0, 1.3)
 	
 func kill():
 	var tween = create_tween()

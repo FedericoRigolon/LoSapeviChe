@@ -2,7 +2,7 @@ extends Node
 
 signal animation_done
 
-@export var duration = 1
+@export var duration = 1.0
 var _target_node 
 
 func get_target_node():

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://n1xv63qu5e4v"
-path="res://.godot/imported/HoveredAudioButton.png-b1c860c0298c8a4a90c4904ca6545c27.ctex"
+uid="uid://ctlmscw8lwni6"
+path="res://.godot/imported/HoveredAudioEnabled.png-89acb6146f451b972b7fdcadd38ad9aa.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/graphics/HoveredAudioButton.png"
-dest_files=["res://.godot/imported/HoveredAudioButton.png-b1c860c0298c8a4a90c4904ca6545c27.ctex"]
+source_file="res://art/graphics/HoveredAudioEnabled.png"
+dest_files=["res://.godot/imported/HoveredAudioEnabled.png-89acb6146f451b972b7fdcadd38ad9aa.ctex"]
 
 [params]
 
