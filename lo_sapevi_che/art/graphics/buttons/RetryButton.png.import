@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://copksi46rpolx"
-path="res://.godot/imported/Button.png-35a3bbd9273d0a8bc810f4e0999f23b3.ctex"
+uid="uid://bjnjmj1htfp3y"
+path="res://.godot/imported/RetryButton.png-ff159bdb7efd4e25518ad6219e8b97fc.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/graphics/Button.png"
-dest_files=["res://.godot/imported/Button.png-35a3bbd9273d0a8bc810f4e0999f23b3.ctex"]
+source_file="res://art/graphics/buttons/RetryButton.png"
+dest_files=["res://.godot/imported/RetryButton.png-ff159bdb7efd4e25518ad6219e8b97fc.ctex"]
 
 [params]
 

@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://ddd3ekmekqxbb"]
 
-[ext_resource type="Texture2D" uid="uid://c878wfwjoxxq8" path="res://art/graphics/Background2.jpg" id="1_4yt8u"]
+[ext_resource type="Texture2D" uid="uid://c878wfwjoxxq8" path="res://art/graphics/bg/Background2.jpg" id="1_4yt8u"]
 [ext_resource type="Script" uid="uid://ceghedhohblj" path="res://scripts/gui/main_ui/gui.gd" id="1_k8xsf"]
 [ext_resource type="PackedScene" uid="uid://bieiqc1mo6u2r" path="res://scenes/components/top_bar.tscn" id="4_7yii4"]
 [ext_resource type="Texture2D" uid="uid://bn07d4p3ahgbg" path="res://art/graphics/GreenKid.png" id="6_qupqx"]

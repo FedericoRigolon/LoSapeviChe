@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c681amoy5i2fo"
-path="res://.godot/imported/Background.jpg-86b8c656e3440a68bac90abf69913cd5.ctex"
+uid="uid://btd52ta7sbhce"
+path="res://.godot/imported/HoveredRetryButton.png-2933f5a37a0faa64b1c577dae19f933c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/graphics/Background.jpg"
-dest_files=["res://.godot/imported/Background.jpg-86b8c656e3440a68bac90abf69913cd5.ctex"]
+source_file="res://art/graphics/buttons/HoveredRetryButton.png"
+dest_files=["res://.godot/imported/HoveredRetryButton.png-2933f5a37a0faa64b1c577dae19f933c.ctex"]
 
 [params]
 
