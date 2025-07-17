@@ -19,4 +19,4 @@ mono_crash.*.json
 *.uid
 *.tmp
 *.exe
-*.ignore
+*.import
