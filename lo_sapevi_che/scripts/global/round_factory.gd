@@ -9,7 +9,7 @@ func start():
 
 func create_round(round_number: int) -> Round:
 	var round = preload("res://scenes/components/round.tscn").instantiate()
-	var data : Dictionary = super.read_csv(super.get_seeks()[round_number], "|")
+	var data : Dictionary = super.read_csv(super.get_seeks()[round_number])
 	round.setup(_create_question(data["question"]), GameLogic.manage_answers(_create_answers(data["answers"])))
 	GameLogic.increase_max_score(round.get_question().get_score())
 	Round.increase_round_count()

@@ -63,15 +63,6 @@ offset_top = 37.0
 offset_bottom = 101.0
 grow_vertical = 1
 
-[node name="AudioButton" parent="TopBar" index="0"]
-visible = false
-
-[node name="NextAudioButton" parent="TopBar" index="1"]
-visible = true
-
-[node name="RetryButton" parent="TopBar" index="3"]
-visible = false
-
 [connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="game_start" from="TutorialPopup" to="." method="_on_tutorial_popup_game_start"]

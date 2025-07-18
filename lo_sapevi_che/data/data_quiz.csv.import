@@ -2,14 +2,14 @@
 
 importer="csv_translation"
 type="Translation"
-uid="uid://c4hcojudh8iid"
+uid="uid://cbutclghbyh1b"
 
 [deps]
 
-files=["res://data/data_quiz. come il cedro|Musaceae.translation", "res://data/data_quiz. come le banane|Cactaceae.translation", "res://data/data_quiz. come i cactus.translation"]
+files=["res://data/data_quiz.A quale famiglia appartiene l’arancia?.translation", "res://data/data_quiz.Rutaceae, come il cedro.translation", "res://data/data_quiz.Musaceae, come le banane.translation", "res://data/data_quiz.Cactaceae, come i cactus.translation"]
 
 source_file="res://data/data_quiz.csv"
-dest_files=["res://data/data_quiz. come il cedro|Musaceae.translation", "res://data/data_quiz. come le banane|Cactaceae.translation", "res://data/data_quiz. come i cactus.translation"]
+dest_files=["res://data/data_quiz.A quale famiglia appartiene l’arancia?.translation", "res://data/data_quiz.Rutaceae, come il cedro.translation", "res://data/data_quiz.Musaceae, come le banane.translation", "res://data/data_quiz.Cactaceae, come i cactus.translation"]
 
 [params]
 

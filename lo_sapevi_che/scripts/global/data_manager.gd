@@ -56,7 +56,9 @@ func read_csv(seek_position: int, separator = ","):
 	var file := FileAccess.open(self.DATA_PATH, FileAccess.READ)
 	
 	file.seek(seek_position)
-	attributes = file.get_line().split(separator)
+	var raw_line := file.get_line()
+
+	attributes = _parse_csv_line(raw_line, separator)
 	
 	var answers : Array
 	for i in range(2, attributes.size()):
@@ -65,3 +67,28 @@ func read_csv(seek_position: int, separator = ","):
 	data["answers"] = answers
 	
 	return data
+
+func _parse_csv_line(line: String, separator: String = ",") -> Array:
+	var result: Array = []
+	var current = ""
+	var inside_quotes = false
+	
+	for i in line.length():
+		var char := line[i]
+		
+		if char == '"' and (i == 0 or line[i - 1] != "\\"): # Toggle quote mode
+			inside_quotes = not inside_quotes
+		elif char == separator and not inside_quotes:
+			var cleaned = current.strip_edges()
+			cleaned = cleaned.lstrip('"').rstrip('"')
+			result.append(cleaned)
+			current = ""
+		else:
+			current += char
+
+	# Add the last element
+	var cleaned = current.strip_edges()
+	cleaned = cleaned.lstrip('"').rstrip('"')
+	result.append(cleaned)
+
+	return result
