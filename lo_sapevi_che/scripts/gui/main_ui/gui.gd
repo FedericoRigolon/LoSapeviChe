@@ -17,7 +17,7 @@ func _on_tutorial_popup_game_start() -> void:
 	$Round1/Question.visible = true
 	$Round1/Question._on_tree_entered()
 	$TopBar.text_first_entrance()
-	$Round1.start()	
+	$Round1.start()
 
 
 func _on_child_entered_tree(node: Node) -> void:

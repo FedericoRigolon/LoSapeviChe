@@ -3,11 +3,13 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://c4hcojudh8iid"
-valid=false
 
 [deps]
 
+files=["res://data/data_quiz. come il cedro|Musaceae.translation", "res://data/data_quiz. come le banane|Cactaceae.translation", "res://data/data_quiz. come i cactus.translation"]
+
 source_file="res://data/data_quiz.csv"
+dest_files=["res://data/data_quiz. come il cedro|Musaceae.translation", "res://data/data_quiz. come le banane|Cactaceae.translation", "res://data/data_quiz. come i cactus.translation"]
 
 [params]
 

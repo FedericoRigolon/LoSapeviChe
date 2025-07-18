@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://dujdqfwmue2ch" path="res://scenes/main_gui/menu/end_menu.tscn" id="1_g8qhe"]
 [ext_resource type="Texture2D" uid="uid://dewlok75ocrrl" path="res://art/graphics/bg/Background4.jpg" id="2_dukhq"]
-[ext_resource type="Texture2D" uid="uid://c3gmp4haervmf" path="res://art/graphics/buttons/HoverButton.png" id="3_2cjxq"]
 [ext_resource type="FontFile" uid="uid://btuhlt2wotj04" path="res://art/font/SkippySharp.ttf" id="3_rkpef"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_8yncs"]
@@ -10,15 +9,18 @@ font = ExtResource("3_rkpef")
 font_size = 50
 font_color = Color(0.101961, 0.0705882, 0.0784314, 1)
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_trehv"]
+load_path = "res://.godot/imported/HoverButton.png-42439871e4896e66f8b64c3dae4bf4fa.ctex"
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_bfr1r"]
-texture = ExtResource("3_2cjxq")
+texture = SubResource("CompressedTexture2D_trehv")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 texture_margin_right = 32.0
 texture_margin_bottom = 40.0
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_32hcy"]
-texture = ExtResource("3_2cjxq")
+texture = SubResource("CompressedTexture2D_trehv")
 texture_margin_left = 32.0
 texture_margin_top = 32.0
 texture_margin_right = 32.0

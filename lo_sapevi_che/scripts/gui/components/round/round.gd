@@ -45,7 +45,6 @@ func get_question() -> Question:
 	return self._question
 
 func _display_answers() -> void:
-	Utils.debug_print(self)
 	var n = _answers.size()
 	for i in range(n):
 		_answers[i].position.y += (_answers[i].size.y + 20) * i
