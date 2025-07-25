@@ -23,22 +23,11 @@ func _set_text(text: String) -> void:
 func _get_text() -> String:
 	return $Text.get_text()
 
-func _set_sound(path_to_sound: String) -> void:
-	var sound = load(path_to_sound)
-	if sound is AudioStream:
-		$AnswerSound.set_stream(sound)
-
 func highlight() -> void:
 	push_error("highligth() must be overridden in subclasses.") # simule abstract class
 
-func _play_sound() -> void:
-	var sound = $AnswerSound
-	if sound.get_stream():
-		sound.play()
-
 func on_answer_chosen() -> void:
 	highlight()
-	_play_sound()
 
 func _on_pressed() -> void:
 	self.answer_clicked.emit(self)

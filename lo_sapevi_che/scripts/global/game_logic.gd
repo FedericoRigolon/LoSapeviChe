@@ -37,7 +37,9 @@ func answer_chosen(answer: Answer, score: int) -> void:
 	if answer is RightAnswer:
 		self._score += score
 		self._correct_answer += 1
+		AudioManager.correct()
 	else:
+		AudioManager.wrong()
 		self.wrong_answer.emit()
 
 func get_correct_answer_ix(answers: Array[Answer]) -> int:

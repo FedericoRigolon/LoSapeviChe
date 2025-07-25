@@ -20,5 +20,3 @@ scale = Vector2(1, 0.916)
 
 [node name="Text" parent="." index="0"]
 label_settings = SubResource("LabelSettings_fa84o")
-
-[node name="AnswerSound" type="AudioStreamPlayer" parent="." index="1"]
