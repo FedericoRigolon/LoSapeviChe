@@ -9,7 +9,7 @@ var _score: int = 0
 var _max_score: int = 0
 
 func _ready() -> void:
-	MAX_ROUND = RoundFactory.get_max_rounds()
+	MAX_ROUND = DataManager.get_max_rounds()
 	
 func get_max_round() -> int:
 	return MAX_ROUND
