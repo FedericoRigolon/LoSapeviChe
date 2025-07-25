@@ -12,7 +12,7 @@ func _on_menu_play_pressed() -> void:
 	RoundFactory.start()
 	await _create_rounds()
 	
-	var score = GameLogic.get_score()
+	#var score = GameLogic.get_score()
 	var win = GameLogic.win()
 	
 	
@@ -33,15 +33,14 @@ func _on_reset():
 	get_tree().reload_current_scene()
 
 func _create_rounds():
-	const ROUNDS = 5
 	var gui = preload("res://scenes/main_gui/gui.tscn").instantiate()
 	gui.get_node("ResetPopup/SplitContainer/Go").pressed.connect(_on_reset)
 	add_child(gui)
-	for i in range(ROUNDS):
-		var round = RoundFactory.create_round(i)
-		gui.add_child(round)
-		gui.move_child(round, -3)
-		await round.kill_me
-		gui.remove_child(round)
-		round.queue_free()
+	for i in range(GameLogic.MAX_ROUND):
+		var current_round = RoundFactory.create_round(i)
+		gui.add_child(current_round)
+		gui.move_child(current_round, -3)
+		await current_round.kill_me
+		gui.remove_child(current_round)
+		current_round.queue_free()
 	gui.game_over()

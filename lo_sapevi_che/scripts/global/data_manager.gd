@@ -4,6 +4,13 @@ class_name DataManager
 const DATA_PATH = "res://data/data_quiz.csv"
 var seeks : Array[int]
 
+static func get_max_rounds():
+	var file = FileAccess.open(DATA_PATH, FileAccess.READ)
+	var rounds = file.get_line().to_int()
+	file.close()
+	
+	return rounds
+
 func reset_seeks():
 	self.seeks.clear()
 
@@ -17,6 +24,9 @@ func seeks_setup() -> bool:
 		push_error("Cant open CSV file: %s" % self.DATA_PATH)
 		return false
 	
+	# first row is MAX ROUND
+	file.get_line()
+	
 	var offsets : Array
 	var size = 0
 	while not file.eof_reached():
@@ -25,6 +35,8 @@ func seeks_setup() -> bool:
 		file.get_line()
 	size -= 1
 	offsets.pop_back()
+	
+	file.close()
 	
 	var row_indices : Array
 	# this formula takes n (total elements) and k (elements to pick up) and chose the most efficient algorithm

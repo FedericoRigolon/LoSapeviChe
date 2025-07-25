@@ -3,13 +3,11 @@
 importer="csv_translation"
 type="Translation"
 uid="uid://cbutclghbyh1b"
+valid=false
 
 [deps]
 
-files=["res://data/data_quiz.A quale famiglia appartiene l’arancia?.translation", "res://data/data_quiz.Rutaceae, come il cedro.translation", "res://data/data_quiz.Musaceae, come le banane.translation", "res://data/data_quiz.Cactaceae, come i cactus.translation"]
-
 source_file="res://data/data_quiz.csv"
-dest_files=["res://data/data_quiz.A quale famiglia appartiene l’arancia?.translation", "res://data/data_quiz.Rutaceae, come il cedro.translation", "res://data/data_quiz.Musaceae, come le banane.translation", "res://data/data_quiz.Cactaceae, come i cactus.translation"]
 
 [params]
 
