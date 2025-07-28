@@ -45,7 +45,8 @@ func _set_answers(answers: Array[Answer]) -> void:
 	self._answers = answers
 	for answer in answers:
 		add_child(answer)
-		move_child($GreenKid, -1)
+		if has_node("GreenKid"):
+			move_child($GreenKid, -1)
 
 
 func get_question() -> Question:
