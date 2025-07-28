@@ -4,13 +4,8 @@ extends Node
 func _on_end_menu_back_pressed():
 	get_tree().quit()
 
-
-func _on_menu_play_pressed() -> void:
-	var menu = get_node("Menu")
-	await menu.kill()
-	remove_child(menu)
-	menu.queue_free()
-
+func _run():
+	await get_tree().process_frame
 	RoundFactory.start()
 	await _create_rounds()
 	
@@ -26,6 +21,13 @@ func _on_menu_play_pressed() -> void:
 	next_scene.back_pressed.connect(_on_end_menu_back_pressed)
 	next_scene.play_pressed.connect(_on_reset)
 	add_child(next_scene)
+
+func _on_menu_play_pressed() -> void:
+	var menu = get_node("Menu")
+	await menu.kill()
+	remove_child(menu)
+	menu.queue_free()
+	_run()
 
 
 func _on_reset():

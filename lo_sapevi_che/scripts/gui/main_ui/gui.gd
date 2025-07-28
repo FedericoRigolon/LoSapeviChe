@@ -5,8 +5,15 @@ func game_over():
 	super.fade_out($GreenKid)
 	super.fade_out($TopBar/Text)
 
+func _on_tree_entered():
+	await super.fade_in($".")
+	$Round1/Question.visible = true
+	$Round1/Question._on_tree_entered()
+	$TopBar.text_first_entrance()
+	$Round1.start()
+	Utils.recursive_disable_buttons(self, false)
 
-func _on_tree_entered() -> void:
+func _on_tree_entered_with_tutorial() -> void:
 	Utils.recursive_disable_buttons(self, true)
 	await super.fade_in($".")
 	await super.fade_in($TutorialPopup)

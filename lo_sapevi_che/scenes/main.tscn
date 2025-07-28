@@ -7,6 +7,8 @@
 script = ExtResource("1_0wfyh")
 
 [node name="Menu" parent="." instance=ExtResource("2_0wfyh")]
+visible = false
 
+[connection signal="tree_entered" from="." to="." method="_run"]
 [connection signal="back_pressed" from="Menu" to="." method="_on_menu_back_pressed"]
 [connection signal="play_pressed" from="Menu" to="." method="_on_menu_play_pressed"]
