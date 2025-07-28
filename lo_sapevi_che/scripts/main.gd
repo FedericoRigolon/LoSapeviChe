@@ -13,7 +13,7 @@ func _on_menu_play_pressed() -> void:
 
 	RoundFactory.start()
 	await _create_rounds()
-
+	
 	#var score = GameLogic.get_score()
 	var win = GameLogic.win()
 

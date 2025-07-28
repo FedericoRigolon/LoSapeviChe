@@ -2,6 +2,7 @@ extends CommonUI
 
 
 func game_over():
+	super.fade_out($GreenKid)
 	super.fade_out($TopBar/Text)
 
 
