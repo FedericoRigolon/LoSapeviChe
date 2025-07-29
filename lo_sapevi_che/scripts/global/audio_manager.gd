@@ -45,5 +45,4 @@ func tap():
 	$Tap.play()
 	
 func popup():
-	print("codiaz")
 	$Popup.play()
