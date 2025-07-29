@@ -44,6 +44,7 @@ text = "Torna al sito"
 label_settings = ExtResource("3_yb7sc")
 
 [node name="ResetPopup" parent="." index="4" instance=ExtResource("6_wqo5a")]
+visible = false
 modulate = Color(1, 1, 1, 0)
 top_level = true
 offset_left = 200.0
@@ -67,6 +68,7 @@ visible = false
 [connection signal="pressed" from="Back" to="." method="_on_back_pressed"]
 [connection signal="tree_entered" from="Back" to="." method="_on_play_tree_entered"]
 [connection signal="cancel" from="ResetPopup" to="." method="_on_reset_popup_cancel"]
+[connection signal="tree_entered" from="ResetPopup" to="ResetPopup" method="_on_tree_entered"]
 [connection signal="retry_pressed" from="TopBar" to="." method="_on_top_bar_retry_pressed"]
 
 [editable path="Play"]

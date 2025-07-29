@@ -17,6 +17,7 @@ offset_top = 62.0
 offset_right = 792.0
 offset_bottom = 134.0
 scale = Vector2(1, 0.916)
+script = null
 
 [node name="Text" parent="." index="0"]
 label_settings = SubResource("LabelSettings_fa84o")

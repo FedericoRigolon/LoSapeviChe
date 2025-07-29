@@ -44,6 +44,8 @@ label_settings = SubResource("LabelSettings_8yncs")
 theme_override_styles/hover = SubResource("StyleBoxTexture_bfr1r")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_32hcy")
 
+[connection signal="tree_entered" from="ResetPopup" to="ResetPopup" method="_on_tree_entered"]
+
 [editable path="Play"]
 [editable path="Back"]
 [editable path="TopBar"]

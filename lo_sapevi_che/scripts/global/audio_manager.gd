@@ -40,3 +40,10 @@ func correct():
 
 func wrong():
 	$WrongAnswer.play()
+	
+func tap():
+	$Tap.play()
+	
+func popup():
+	print("codiaz")
+	$Popup.play()
