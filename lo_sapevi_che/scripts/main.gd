@@ -11,7 +11,6 @@ func _on_end_menu_back_pressed():
 
 func _run():
 	await get_tree().process_frame
-	AudioManager.start()
 	RoundFactory.start()
 	await _create_rounds()
 	
