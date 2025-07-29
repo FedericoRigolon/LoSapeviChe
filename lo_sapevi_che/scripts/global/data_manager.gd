@@ -1,7 +1,7 @@
 extends Node
 class_name DataManager
 
-const DATA_PATH = "res://data/data_quiz.csv"
+const DATA_PATH = "res://data/data_quiz.csv.txt"
 var seeks: Array[int]
 
 
