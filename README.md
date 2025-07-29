@@ -1,5 +1,4 @@
-# LoSapeviChe
-
+# Lo sapevi che?
 Quiz game developed by Luca Milioli and Federico Rigolon for https://www.spreafico.net/
 
 Main branch is Desktop only. 
