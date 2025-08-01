@@ -1,8 +1,14 @@
 extends Node
 
+const URL = "https://spreafico.net"
+
 
 func _on_end_menu_back_pressed():
-	get_tree().quit()
+	if OS.get_name() == "Web":
+		var js = Engine.get_singleton("JavaScriptBridge")
+		js.call("eval", "window.location.href = '" + URL + "';")
+	else:
+		get_tree().quit()
 
 
 func _on_menu_play_pressed() -> void:
@@ -13,7 +19,7 @@ func _on_menu_play_pressed() -> void:
 
 	RoundFactory.start()
 	await _create_rounds()
-	
+
 	#var score = GameLogic.get_score()
 	var win = GameLogic.win()
 
@@ -47,3 +53,8 @@ func _create_rounds():
 		gui.remove_child(current_round)
 		current_round.queue_free()
 	gui.game_over()
+
+
+func _on_child_entered_tree(node: Node) -> void:
+	if has_node("FullScreenButton"):
+		move_child.call_deferred($FullScreenButton, -1)

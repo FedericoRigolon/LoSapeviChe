@@ -36,8 +36,6 @@ static func reset_round_count() -> void:
 
 func _set_question(question: Question) -> void:
 	self._question = question
-	#if Round.get_round_count() == 1:
-	#	await
 	add_child(question)
 
 
@@ -45,8 +43,8 @@ func _set_answers(answers: Array[Answer]) -> void:
 	self._answers = answers
 	for answer in answers:
 		add_child(answer)
-		if has_node("GreenKid"):
-			move_child($GreenKid, -1)
+	if has_node("GreenKid"):
+		move_child($GreenKid, -1)
 
 
 func get_question() -> Question:
