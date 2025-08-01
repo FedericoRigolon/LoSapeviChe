@@ -2,20 +2,17 @@ extends Button
 
 class_name Answer
 
-signal answer_clicked
-
 
 func setup(text: String) -> void:
 	_set_text(text)
-	pressed.connect(_on_pressed)
 
 
 func connect_to_parent() -> void:
-	self.answer_clicked.connect(get_parent()._on_answer_clicked)
+	self.pressed.connect(get_parent()._on_answer_clicked.bind(self))
 
 
 func disconnect_to_parent() -> void:
-	self.answer_clicked.disconnect(get_parent()._on_answer_clicked)
+	self.pressed.disconnect(get_parent()._on_answer_clicked)
 
 
 func disconnect_click() -> void:
@@ -36,7 +33,3 @@ func highlight() -> void:
 
 func on_answer_chosen() -> void:
 	highlight()
-
-
-func _on_pressed() -> void:
-	self.answer_clicked.emit(self)
