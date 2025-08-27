@@ -1,13 +1,20 @@
+## Class that represents the topbar of display. It contains retry button, audio button
+## and text.
 extends HBoxContainer
+class_name TopBar
 
+## Emitted when user presses retry, so the game can restart.
 signal retry_pressed
 
 
+## Swaps audio and audio muted when the game starts and audio is muted.
+## By default audio is not muted, but in browsers audio is muted at the beginning.
 func _ready():
 	if AudioManager.is_audio_muted():
 		_swap_audio_buttons()
 
 
+## Swaps the audio muted and not muted buttons. Called every time the user toggles the audio.
 func _swap_audio_buttons():
 	$AudioButton.visible = not $AudioButton.visible
 	$NextAudioButton.visible = not $NextAudioButton.visible
@@ -25,15 +32,18 @@ func _swap_audio_buttons():
 	audio_btn.set_name(name1)
 
 
+## Called when user presses on audio button. It toggles audio and swaps button images.
 func _on_audio_button_pressed() -> void:
 	_swap_audio_buttons()
 	AudioManager.toggle_audio()
 
 
+## Called when the user presses the retry button.
 func _on_retry_button_pressed() -> void:
 	self.retry_pressed.emit()
 
 
+## Animation played in the first entrance of the text.
 func text_first_entrance() -> void:
 	update_text()
 	$Text.modulate.a = 0.0
@@ -41,5 +51,9 @@ func text_first_entrance() -> void:
 	tween.tween_property($Text, "modulate:a", 1.0, 0.5)
 
 
+## Updates the topbar text 1/max_rounds --> 2/max_rounds --> ... --> max_rounds/max_rounds.
 func update_text():
-	$Text.set_text(str(Round.get_round_count()) + " di " + str(GameLogic.get_max_round()))
+	var first_line = "Trova la risposta giusta"
+	var round_text = str(Round.get_round_count()) + " di " + str(GameLogic.get_max_round())
+	
+	$Text.set_text(first_line + "\n" + round_text)

@@ -40,9 +40,15 @@ offset_bottom = 94.0
 text = "Non hai risposto correttamente alle domande..."
 label_settings = SubResource("LabelSettings_8yncs")
 
+[node name="Text" parent="Play" index="0"]
+text = "Gioca ancora"
+
 [node name="Back" parent="." index="3"]
 theme_override_styles/hover = SubResource("StyleBoxTexture_bfr1r")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_32hcy")
+
+[node name="Text" parent="Back" index="0"]
+text = "Cambia gioco"
 
 [editable path="Play"]
 [editable path="Back"]

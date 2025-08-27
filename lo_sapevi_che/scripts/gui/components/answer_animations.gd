@@ -1,19 +1,26 @@
+## This script implements the animation of answer object.
 extends Node
+class_name AnswerAnimation
 
+## Emitted when the animation is finished.
 signal animation_done
 
+## Duration of animations. Default is 1.0.
 @export var duration = 1.0
+
+## Pointer to the answer node that has to be animated.
 var _target_node
 
-
+## Getter for the target node.
 func get_target_node():
 	return self._target_node
 
-
+## Setter for the answer node.
 func set_target_node(target: Node):
 	self._target_node = target
 
 
+## Plays the animation on the target node.
 func start(delay: float = 0, is_entry: bool = true):
 	var current_node = get_target_node()
 

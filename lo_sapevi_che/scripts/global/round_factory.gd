@@ -1,15 +1,17 @@
+## Singleton script for creating round objects.
 extends DataManager
 
 
+## Resets everything. Called when game restarts.
 func reset():
 	super.reset_seeks()
 	Round.reset_round_count()
 
-
+## Setup for creating rounds. Calls parent method seeks_setup.
 func start():
 	super.seeks_setup()
 
-
+## Create a round object and updates every related variable. Returns the round.
 func create_round(round_number: int) -> Round:
 	var round = preload("res://scenes/components/round.tscn").instantiate()
 	var data: Dictionary = super.read_csv(super.get_seeks()[round_number])
@@ -22,27 +24,27 @@ func create_round(round_number: int) -> Round:
 	round.set_name("Round" + str(Round.get_round_count()))
 	return round
 
-
+## Creates a question object. A question object is fundamental for the round creation.
 func _create_question(text: String) -> Question:
 	var question = preload("res://scenes/components/buttons/question.tscn").instantiate()
 	question.setup(text)
 	return question
 
-
+## Creates a correct answer object. A correct answer object is fundamental for the round creation.
 func _create_correct_answer(text: String) -> RightAnswer:
 	var answer = preload("res://scenes/components/buttons/answer.tscn").instantiate()
 	answer.set_script(preload("res://scripts/gui/components/round/answer/right_answer.gd"))
 	answer.setup(text)
 	return answer
 
-
+## Creates a wrong answer object. A wrong answer object is fundamental for the round creation.
 func _create_wrong_answer(text: String) -> WrongAnswer:
 	var answer = preload("res://scenes/components/buttons/answer.tscn").instantiate()
 	answer.set_script(preload("res://scripts/gui/components/round/answer/wrong_answer.gd"))
 	answer.setup(text)
 	return answer
 
-
+## Creates answers. Creates 2 wrong and 1 correct calling the relative method.
 func _create_answers(answers_text: PackedStringArray) -> Array[Answer]:
 	var answers: Array[Answer]
 	answers.append(_create_correct_answer(answers_text[0]))

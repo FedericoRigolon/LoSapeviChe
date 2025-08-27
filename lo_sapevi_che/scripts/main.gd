@@ -1,7 +1,13 @@
+## Main script.
 extends Node
+class_name Main
 
+## URL where games are hosted.
 const URL = "https://spreafico.net/"
 
+
+## When "back" button is pressed on menu, calls the URL using javascript eval function
+## if the game is a webexport. Quits the application otherwise.
 func _on_end_menu_back_pressed():
 	if OS.get_name() == "Web":
 		var js = Engine.get_singleton("JavaScriptBridge")
@@ -9,24 +15,9 @@ func _on_end_menu_back_pressed():
 	else:
 		get_tree().quit()
 
-func _run():
-	await get_tree().process_frame
-	RoundFactory.start()
-	await _create_rounds()
-	
-	#var score = GameLogic.get_score()
-	var win = GameLogic.win()
 
-	var next_scene: Node
-	if win:
-		next_scene = preload("res://scenes/main_gui/menu/end_menu.tscn").instantiate()
-	else:
-		next_scene = preload("res://scenes/main_gui/menu/end_menu2.tscn").instantiate()
-
-	next_scene.back_pressed.connect(_on_end_menu_back_pressed)
-	next_scene.play_pressed.connect(_on_reset)
-	add_child(next_scene)
-
+## When "play" button is pressed, main menu gets killed and the gui scene is instantiated.
+## Now the game can start (in v2, this method is never called)
 func _on_menu_play_pressed() -> void:
 	var menu = get_node("Menu")
 	await menu.kill()
@@ -35,6 +26,33 @@ func _on_menu_play_pressed() -> void:
 	_run()
 
 
+## Main function of the game. Creates rounds, setups end menu and awaits until the game
+## is over.
+func _run():
+	await get_tree().process_frame
+	RoundFactory.start()
+	await _create_rounds()
+
+	#var score = GameLogic.get_score()
+	var win = GameLogic.win()
+	var perfect_win = false
+	if win:
+		perfect_win = GameLogic.perfect_win()
+
+	var next_scene: Node
+	if win:
+		next_scene = preload("res://scenes/main_gui/menu/end_menu.tscn").instantiate()
+		next_scene.set_win_type(perfect_win)
+	else:
+		next_scene = preload("res://scenes/main_gui/menu/end_menu2.tscn").instantiate()
+
+	next_scene.back_pressed.connect(_on_end_menu_back_pressed)
+	next_scene.play_pressed.connect(_on_reset)
+	add_child(next_scene)
+
+
+## Resets every singleton and reload the current scene.
+## Called every time the game restarts.
 func _on_reset():
 	AudioManager.reset()
 	GameLogic.reset()
@@ -42,6 +60,8 @@ func _on_reset():
 	get_tree().reload_current_scene()
 
 
+## Creates the correct number of rounds. Calls the factory, awaits the turn end
+## and calls game_over.
 func _create_rounds():
 	var gui = preload("res://scenes/main_gui/gui.tscn").instantiate()
 	gui.get_node("ResetPopup/SplitContainer/Go").pressed.connect(_on_reset)
@@ -54,3 +74,9 @@ func _create_rounds():
 		gui.remove_child(current_round)
 		current_round.queue_free()
 	gui.game_over()
+
+
+## Called when a child is added. It moves FullScreenButton in last position.
+func _on_child_entered_tree(node: Node) -> void:
+	if has_node("FullScreenButton"):
+		move_child.call_deferred($FullScreenButton, -1)

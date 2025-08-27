@@ -14,7 +14,7 @@ type = 1
 texture = ExtResource("2_87tj7")
 
 [node name="Text" parent="." index="1"]
-text = "Hai completato il gioco! Rigioca per scoprire altre curiosità su frutta e verdura."
+text = "Super! Hai risposto bene a quasi tutte le domande."
 
 [node name="Play" parent="." index="2"]
 offset_left = 12.0
@@ -24,7 +24,7 @@ offset_bottom = -86.0
 scale = Vector2(1, 0.96)
 
 [node name="Text" parent="Play" index="0"]
-text = "Rigioca"
+text = "Gioca ancora"
 label_settings = ExtResource("3_yb7sc")
 
 [node name="Back" parent="." index="3" instance=ExtResource("4_gt641")]
@@ -40,7 +40,7 @@ grow_vertical = 0
 scale = Vector2(1, 0.96)
 
 [node name="Text" parent="Back" index="0"]
-text = "Torna al sito"
+text = "Cambia gioco"
 label_settings = ExtResource("3_yb7sc")
 
 [node name="ResetPopup" parent="." index="4" instance=ExtResource("6_wqo5a")]

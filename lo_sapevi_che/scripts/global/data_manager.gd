@@ -1,10 +1,15 @@
+## Script for data management.
 extends Node
 class_name DataManager
 
+## path where data is located.
 const DATA_PATH = "res://data/data_quiz.csv.txt"
+
+## Array which contains the position (bytes) where info are stored.
 var seeks: Array[int]
 
 
+## static getter for max round of the game.
 static func get_max_rounds():
 	var file = FileAccess.open(DATA_PATH, FileAccess.READ)
 	var rounds = file.get_line().to_int()
@@ -13,14 +18,17 @@ static func get_max_rounds():
 	return rounds
 
 
+## Reset the seek array.
 func reset_seeks():
 	self.seeks.clear()
 
 
+## Return the seek array.
 func get_seeks():
 	return self.seeks
 
 
+## Setups seek array reading csv file.
 func seeks_setup() -> bool:
 	var file := FileAccess.open(self.DATA_PATH, FileAccess.READ)
 
@@ -67,6 +75,7 @@ func seeks_setup() -> bool:
 	return true
 
 
+## Reads csv and return a dictionary.
 func read_csv(seek_position: int, separator = ","):
 	var data: Dictionary
 	var attributes: PackedStringArray
@@ -86,6 +95,7 @@ func read_csv(seek_position: int, separator = ","):
 	return data
 
 
+## Parse a csv line. Reads data of specific line after cleaning.
 func _parse_csv_line(line: String, separator: String = ",") -> Array:
 	var result: Array = []
 	var current = ""

@@ -13,7 +13,7 @@ load_path = "res://.godot/imported/HoveredAudioEnabled.png-66fcf39fb62e8806ec2eb
 
 [sub_resource type="LabelSettings" id="LabelSettings_nts21"]
 font = ExtResource("4_p8s5q")
-font_size = 54
+font_size = 50
 font_color = Color(0.101961, 0.0705882, 0.0784314, 1)
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_bywe0"]
