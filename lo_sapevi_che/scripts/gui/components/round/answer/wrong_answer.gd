@@ -1,6 +1,5 @@
 ## This class represents a wrong answer. It extends answer.
 extends Answer
-
 class_name WrongAnswer
 
 ## Color green.

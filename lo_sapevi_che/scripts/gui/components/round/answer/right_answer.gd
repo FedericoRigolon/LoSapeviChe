@@ -1,6 +1,5 @@
 ## This class represents a correct answer. It extends answer.
 extends Answer
-
 class_name RightAnswer
 
 ## Color green.

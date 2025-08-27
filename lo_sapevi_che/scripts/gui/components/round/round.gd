@@ -1,6 +1,5 @@
 ## This class represents a round object.
 extends Control
-
 class_name Round
 
 ## Emitted when this object has to be killed.

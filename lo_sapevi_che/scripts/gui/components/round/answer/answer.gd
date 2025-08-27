@@ -1,4 +1,3 @@
-
 ## This class represents an Answer. It extends a Button.
 extends Button
 class_name Answer
