@@ -19,9 +19,9 @@ func _on_end_menu_back_pressed():
 ## When "play" button is pressed, main menu gets killed and the gui scene is instantiated.
 ## Now the game can start (in v2, this method is never called)
 func _on_menu_play_pressed() -> void:
-	var menu = get_node("Menu")
+	var menu = $SubViewportContainer/SubViewport.get_node("Menu")
 	await menu.kill()
-	remove_child(menu)
+	$SubViewportContainer/SubViewport.remove_child(menu)
 	menu.queue_free()
 	_run()
 
@@ -48,7 +48,7 @@ func _run():
 
 	next_scene.back_pressed.connect(_on_end_menu_back_pressed)
 	next_scene.play_pressed.connect(_on_reset)
-	add_child(next_scene)
+	$SubViewportContainer/SubViewport.add_child(next_scene)
 
 
 ## Resets every singleton and reload the current scene.
@@ -65,7 +65,7 @@ func _on_reset():
 func _create_rounds():
 	var gui = preload("res://scenes/main_gui/gui.tscn").instantiate()
 	gui.get_node("ResetPopup/SplitContainer/Go").pressed.connect(_on_reset)
-	add_child(gui)
+	$SubViewportContainer/SubViewport.add_child(gui)
 	for i in range(GameLogic.MAX_ROUND):
 		var current_round = RoundFactory.create_round(i)
 		gui.add_child(current_round)
@@ -78,5 +78,5 @@ func _create_rounds():
 
 ## Called when a child is added. It moves FullScreenButton in last position.
 func _on_child_entered_tree(node: Node) -> void:
-	if has_node("FullScreenButton"):
-		move_child.call_deferred($FullScreenButton, -1)
+	if $SubViewportContainer/SubViewport.has_node("FullScreenButton"):
+		$SubViewportContainer/SubViewport.move_child.call_deferred($SubViewportContainer/SubViewport/FullScreenButton, -1)
