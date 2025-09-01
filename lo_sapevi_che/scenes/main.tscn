@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://ce2uirdja3rif"]
+[gd_scene load_steps=5 format=3 uid="uid://ce2uirdja3rif"]
 
 [ext_resource type="Script" uid="uid://736qo7ofu51t" path="res://scripts/main.gd" id="1_0wfyh"]
 [ext_resource type="PackedScene" uid="uid://c1t2pn4wepmpt" path="res://scenes/main_gui/menu/menu.tscn" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://b5gbow2oh4h6b" path="res://scenes/components/rotate_warning.tscn" id="2_jyhfs"]
 [ext_resource type="PackedScene" uid="uid://cb2njq6eccg7x" path="res://scenes/components/buttons/full_screen_button.tscn" id="3_sugp2"]
-[ext_resource type="LabelSettings" uid="uid://cv8csea2dlti8" path="res://art/styleboxes/label_settings_40.tres" id="4_tbgi4"]
-[ext_resource type="Texture2D" uid="uid://co5mvp6iyt5rk" path="res://art/graphics/mobile_rotate.png" id="5_tefeu"]
 
 [node name="Main" type="Node"]
 script = ExtResource("1_0wfyh")
@@ -29,54 +28,7 @@ handle_input_locally = false
 size = Vector2i(1024, 784)
 render_target_update_mode = 4
 
-[node name="RotateWarning" type="Control" parent="SubViewportContainer/SubViewport"]
-visible = false
-z_index = 2
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ColorRect" type="ColorRect" parent="SubViewportContainer/SubViewport/RotateWarning"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.128344, 0.128344, 0.128344, 1)
-
-[node name="RotateText" type="Label" parent="SubViewportContainer/SubViewport/RotateWarning"]
-layout_mode = 1
-anchors_preset = 12
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -134.0
-offset_bottom = -53.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "Ruota il telefono"
-label_settings = ExtResource("4_tbgi4")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="PhoneImage" type="TextureRect" parent="SubViewportContainer/SubViewport/RotateWarning"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -200.0
-offset_top = -202.0
-offset_right = 200.0
-offset_bottom = 98.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("5_tefeu")
+[node name="RotateWarning" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_jyhfs")]
 
 [node name="Menu" parent="SubViewportContainer/SubViewport" instance=ExtResource("2_0wfyh")]
 visible = false
