@@ -5,12 +5,22 @@ class_name Main
 ## URL where games are hosted.
 const URL = "https://spreafico.net/"
 
-
 ## Makes the background transparent
 func _ready() -> void:
 	get_tree().root.transparent_bg = true
 
 
+## Checks every frame the screen orientation and stops the game (mobile only).
+func _process(_delta):
+	var orientation = DisplayServer.screen_get_orientation()
+	if orientation == DisplayServer.SCREEN_PORTRAIT:
+		$SubViewportContainer/SubViewport/RotateWarning.visible = true
+		get_tree().paused = true
+	else:
+		$SubViewportContainer/SubViewport/RotateWarning.visible = false
+		get_tree().paused = false
+		
+		
 ## When "back" button is pressed on menu, calls the URL using javascript eval function
 ## if the game is a webexport. Quits the application otherwise.
 func _on_end_menu_back_pressed():
@@ -36,6 +46,7 @@ func _on_menu_play_pressed() -> void:
 func _run():
 	await get_tree().process_frame
 	RoundFactory.start()
+	#await startable
 	await _create_rounds()
 
 	#var score = GameLogic.get_score()
@@ -71,6 +82,7 @@ func _create_rounds():
 	var gui = preload("res://scenes/main_gui/gui.tscn").instantiate()
 	gui.get_node("ResetPopup/SplitContainer/Go").pressed.connect(_on_reset)
 	$SubViewportContainer/SubViewport.add_child(gui)
+	$SubViewportContainer/SubViewport.move_child(gui, -1)
 	for i in range(GameLogic.MAX_ROUND):
 		var current_round = RoundFactory.create_round(i)
 		gui.add_child(current_round)
