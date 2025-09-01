@@ -94,13 +94,13 @@ func get_correct_answer() -> int:
 	return self._correct_answer
 
 
-## Checks if the user won. There are 2 types of win: 100% or 51%,
-## this method only checks if the user didin't lose.
+## Checks if the user won. There are 2 types of win: 100% or 50% + 1,
+## this method is called only if the user didin't lose.
 func win() -> bool:
-	return self._score >= (self._max_score / 2 + 1)
+	return self._score > self._max_score / 2
 
 
-## Checks the 100% win, it's called only after 51% win is confirmed.
+## Checks the 100% win, it's called only after 50% + 1 win is confirmed.
 func perfect_win() -> bool:
 	return self._score >= self._max_score
 	
