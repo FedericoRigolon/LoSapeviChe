@@ -19,8 +19,8 @@ func _process(_delta):
 	else:
 		$SubViewportContainer/SubViewport/RotateWarning.visible = false
 		get_tree().paused = false
-		
-		
+
+
 ## When "back" button is pressed on menu, calls the URL using javascript eval function
 ## if the game is a webexport. Quits the application otherwise.
 func _on_end_menu_back_pressed():
