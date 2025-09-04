@@ -41,7 +41,7 @@ func set_paused(paused: bool) -> void:
 ## if the game is a webexport. Quits the application otherwise.
 func _on_end_menu_back_pressed():
 	if OS.get_name() == "Web":
-		var URL = JavaScriptBridge.call("eval", "window.location.href.split('/').slice(0, -2).join('/');")
+		var URL = JavaScriptBridge.call("eval", "top.location.href.split('/').slice(0, -2).join('/');")
 		JavaScriptBridge.call("eval", "top.location.href = '" + URL + "';")
 	else:
 		get_tree().quit()
