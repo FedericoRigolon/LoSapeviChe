@@ -11,9 +11,11 @@ signal animation_done
 ## Pointer to the answer node that has to be animated.
 var _target_node
 
+
 ## Getter for the target node.
 func get_target_node():
 	return self._target_node
+
 
 ## Setter for the answer node.
 func set_target_node(target: Node):

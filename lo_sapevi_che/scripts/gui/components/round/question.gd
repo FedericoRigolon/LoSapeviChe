@@ -9,7 +9,7 @@ var _score: int
 
 ## Setups label text and score.
 func setup(text: String, score: int = 1):
-	set_text("\n"+text)
+	set_text("\n" + text)
 	self._score = score
 
 

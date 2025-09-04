@@ -55,5 +55,5 @@ func text_first_entrance() -> void:
 func update_text():
 	var first_line = "Trova la risposta giusta"
 	var round_text = str(Round.get_round_count()) + " di " + str(GameLogic.get_max_round())
-	
+
 	$Text.set_text(first_line + "\n" + round_text)

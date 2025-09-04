@@ -28,10 +28,12 @@ func _on_back_pressed() -> void:
 func set_win_type(perfect_win = false):
 	if self.type != 1:
 		return
-	
+
 	if perfect_win:
-		$Text.set_text("Hai completato il gioco! Rigioca per scoprire altre curiosità su frutta e verdura.")
-	
+		$Text.set_text(
+			"Hai completato il gioco! Rigioca per scoprire altre curiosità su frutta e verdura."
+		)
+
 
 ## Checks what tyoe of menu it is (win menu or lose menu) and plays the correct audio
 ## and animation.

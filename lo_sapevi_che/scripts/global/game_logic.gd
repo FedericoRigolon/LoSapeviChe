@@ -103,7 +103,7 @@ func win() -> bool:
 ## Checks the 100% win, it's called only after 50% + 1 win is confirmed.
 func perfect_win() -> bool:
 	return self._score >= self._max_score
-	
+
 
 ## Resets every attribute, called after game restart.
 func reset() -> void:
