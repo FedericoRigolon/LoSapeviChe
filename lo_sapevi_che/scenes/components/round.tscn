@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://d30qap5ik1mye"]
+[gd_scene load_steps=5 format=3 uid="uid://d30qap5ik1mye"]
 
 [ext_resource type="Script" uid="uid://bqs70cpqsciwh" path="res://scripts/gui/components/round/round.gd" id="1_7ts5f"]
 [ext_resource type="Script" uid="uid://r3kffwi46tpe" path="res://scripts/gui/components/answer_animations.gd" id="2_gk7nc"]
+[ext_resource type="FontFile" uid="uid://by2fsotvgiu72" path="res://art/font/Roc_Grotesk_Medium.ttf" id="3_gk7nc"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_jl83e"]
+font = ExtResource("3_gk7nc")
+font_size = 25
+font_color = Color(0.980392, 0.388235, 0.0784314, 1)
 
 [node name="Round" type="Control"]
 layout_mode = 3
@@ -16,6 +22,21 @@ script = ExtResource("1_7ts5f")
 
 [node name="AnswersAnimation" type="Node" parent="."]
 script = ExtResource("2_gk7nc")
+
+[node name="Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -192.0
+offset_bottom = -151.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_jl83e")
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
 [connection signal="animation_done" from="AnswersAnimation" to="." method="_on_exit_tween_animation_done"]

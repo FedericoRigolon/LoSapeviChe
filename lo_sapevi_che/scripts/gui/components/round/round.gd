@@ -24,6 +24,7 @@ func _ready() -> void:
 func setup(question: Question, answers: Array[Answer]) -> void:
 	_set_question(question)
 	_set_answers(answers)
+	$Text.set_text("Domanda "+str(Round.get_round_count() + 1) + " di " + str(GameLogic.get_max_round()))
 	for answer in self._answers:
 		answer.connect_to_parent()
 	GameLogic.wrong_answer.connect(_on_wrong_answer)
@@ -85,6 +86,7 @@ func _disconnect_answers() -> void:
 
 ## Called on round start. It shows the answer after awaiting a frame.
 func start():
+	$Text.modulate.a = 1.0
 	await get_tree().process_frame
 	_display_answers()
 
@@ -112,6 +114,12 @@ func _on_exit_tween_animation_done() -> void:
 	self.kill_me.emit()
 
 
+func first_entrance():
+	$Question._on_tree_entered()
+	var tween = create_tween()
+	tween.tween_property($Text, "modulate:a", 1.0, 0.5)
+	await tween.finished
+	
 ## On tree entered the visibility is changed and the round can start.
 ## The first start must be called from gui (round container).
 func _on_tree_entered() -> void:

@@ -53,9 +53,11 @@ ignore_texture_size = true
 script = ExtResource("4_nts21")
 
 [node name="Text" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(600, 64)
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "Trova la risposta giusta"
 label_settings = SubResource("LabelSettings_nts21")
 horizontal_alignment = 1
 vertical_alignment = 1

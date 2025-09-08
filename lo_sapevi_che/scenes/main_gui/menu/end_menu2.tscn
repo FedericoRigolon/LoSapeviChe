@@ -34,9 +34,8 @@ texture = ExtResource("2_trehv")
 
 [node name="Text" parent="." index="1"]
 offset_left = -300.0
-offset_top = -34.0
 offset_right = 300.0
-offset_bottom = 94.0
+offset_bottom = 86.0
 text = "Oh no… Hai risposto bene a poche domande. Allenati ancora un po’!"
 label_settings = SubResource("LabelSettings_8yncs")
 

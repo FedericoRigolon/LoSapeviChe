@@ -45,15 +45,6 @@ func _on_retry_button_pressed() -> void:
 
 ## Animation played in the first entrance of the text.
 func text_first_entrance() -> void:
-	update_text()
 	$Text.modulate.a = 0.0
 	var tween = create_tween()
 	tween.tween_property($Text, "modulate:a", 1.0, 0.5)
-
-
-## Updates the topbar text 1/max_rounds --> 2/max_rounds --> ... --> max_rounds/max_rounds.
-func update_text():
-	var first_line = "Trova la risposta giusta"
-	var round_text = str(Round.get_round_count()) + " di " + str(GameLogic.get_max_round())
-
-	$Text.set_text(first_line + "\n" + round_text)
