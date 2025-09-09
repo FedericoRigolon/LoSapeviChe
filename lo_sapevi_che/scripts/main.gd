@@ -102,6 +102,7 @@ func _run():
 ## Resets every singleton and reload the current scene.
 ## Called every time the game restarts.
 func _on_reset():
+	await get_tree().process_frame
 	AudioManager.reset()
 	GameLogic.reset()
 	RoundFactory.reset()
